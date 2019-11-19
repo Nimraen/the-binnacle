@@ -1,0 +1,183 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo>
+  <record id="account.account_invoices" model="ir.actions.report" context="{'studio': True}">
+    <field name="attachment">(object.state in ('open','in_payment','paid')) and ('INV'+(object.number or '').replace('/','')+'.pdf')</field>
+    <field name="attachment_use" eval="False"/>
+    <field name="binding_model_id" eval="False"/>
+    <field name="binding_type">report</field>
+    <field name="groups_id" eval="[(6, 0, [ref('account.group_account_invoice')])]"/>
+    <field name="model">account.invoice</field>
+    <field name="multi" eval="False"/>
+    <field name="name">Invoices</field>
+    <field name="report_name">account.report_invoice_with_payments</field>
+    <field name="report_type">qweb-pdf</field>
+  </record>
+  <record id="studio_customization.invoices_copy_1_0d6d55b1-1452-4b1b-9656-f2d2f35a53db" model="ir.actions.report" context="{'studio': True}">
+    <field name="attachment">(object.state in ('open','in_payment','paid')) and ('INV'+(object.number or '').replace('/','')+'.pdf')</field>
+    <field name="attachment_use" eval="False"/>
+    <field name="binding_model_id" ref="account.model_account_invoice"/>
+    <field name="binding_type">report</field>
+    <field name="groups_id" eval="[(6, 0, [ref('account.group_account_invoice')])]"/>
+    <field name="model">account.invoice</field>
+    <field name="multi" eval="False"/>
+    <field name="name">Commercial Invoice</field>
+    <field name="report_name">account.report_invoice_with_payments_copy_1_copy_1</field>
+    <field name="report_type">qweb-pdf</field>
+  </record>
+  <record id="studio_customization.purchase_order_52d64f03-89b4-4ae1-9798-3776d24402d7" model="ir.actions.report" context="{'studio': True}">
+    <field name="attachment" eval="False"/>
+    <field name="attachment_use" eval="False"/>
+    <field name="binding_model_id" ref="purchase.model_purchase_order"/>
+    <field name="binding_type">report</field>
+    <field name="groups_id" eval="[(6, 0, [])]"/>
+    <field name="model">purchase.order</field>
+    <field name="multi" eval="False"/>
+    <field name="name">Purchase Order copy(1)</field>
+    <field name="report_name">purchase.report_purchaseorder_copy_1</field>
+    <field name="report_type">qweb-pdf</field>
+  </record>
+  <record id="studio_customization.invoices_without_pay_94398c83-b944-462d-8bf2-2fac34acb7a7" model="ir.actions.report" context="{'studio': True}">
+    <field name="attachment">(object.state in ('open','in_payment','paid')) and ('INV'+(object.number or '').replace('/','')+'.pdf')</field>
+    <field name="attachment_use" eval="False"/>
+    <field name="binding_model_id" eval="False"/>
+    <field name="binding_type">report</field>
+    <field name="groups_id" eval="[(6, 0, [])]"/>
+    <field name="model">account.invoice</field>
+    <field name="multi" eval="False"/>
+    <field name="name">Invoices without Payment copy(1)</field>
+    <field name="report_name">account.report_invoice_copy_2</field>
+    <field name="report_type">qweb-pdf</field>
+  </record>
+  <record id="account.account_invoices_without_payment" model="ir.actions.report" context="{'studio': True}">
+    <field name="attachment">(object.state in ('open','in_payment','paid')) and ('INV'+(object.number or '').replace('/','')+'.pdf')</field>
+    <field name="attachment_use" eval="False"/>
+    <field name="binding_model_id" eval="False"/>
+    <field name="binding_type">report</field>
+    <field name="groups_id" eval="[(6, 0, [])]"/>
+    <field name="model">account.invoice</field>
+    <field name="multi" eval="False"/>
+    <field name="name">Invoices without Payment</field>
+    <field name="report_name">account.report_invoice</field>
+    <field name="report_type">qweb-pdf</field>
+  </record>
+  <record id="studio_customization.quotation_order_copy_d2df31e2-da1e-40c0-90d9-51346133e1a6" model="ir.actions.report" context="{'studio': True}">
+    <field name="attachment" eval="False"/>
+    <field name="attachment_use" eval="False"/>
+    <field name="binding_model_id" ref="sale.model_sale_order"/>
+    <field name="binding_type">report</field>
+    <field name="groups_id" eval="[(6, 0, [])]"/>
+    <field name="model">sale.order</field>
+    <field name="multi" eval="False"/>
+    <field name="name">BinCom Quote/Order</field>
+    <field name="report_name">sale.report_saleorder_copy_1_copy_2</field>
+    <field name="report_type">qweb-pdf</field>
+  </record>
+  <record id="studio_customization.invoices_copy_1_34ec6a27-6078-4d6d-9bee-79d4c2e9ce77" model="ir.actions.report" context="{'studio': True}">
+    <field name="attachment">(object.state in ('open','in_payment','paid')) and ('INV'+(object.number or '').replace('/','')+'.pdf')</field>
+    <field name="attachment_use" eval="False"/>
+    <field name="binding_model_id" ref="account.model_account_invoice"/>
+    <field name="binding_type">report</field>
+    <field name="groups_id" eval="[(6, 0, [ref('account.group_account_invoice')])]"/>
+    <field name="model">account.invoice</field>
+    <field name="multi" eval="False"/>
+    <field name="name">BinCom Invoice</field>
+    <field name="report_name">account.report_invoice_with_payments_copy_1_copy_2</field>
+    <field name="report_type">qweb-pdf</field>
+  </record>
+  <record id="studio_customization.quotation_order_copy_526605e1-d266-4b9d-9e75-523e21b5787a" model="ir.actions.report" context="{'studio': True}">
+    <field name="attachment" eval="False"/>
+    <field name="attachment_use" eval="False"/>
+    <field name="binding_model_id" ref="sale.model_sale_order"/>
+    <field name="binding_type">report</field>
+    <field name="groups_id" eval="[(6, 0, [])]"/>
+    <field name="model">sale.order</field>
+    <field name="multi" eval="False"/>
+    <field name="name">Commercial Quote/Order</field>
+    <field name="report_name">sale.report_saleorder_copy_1_copy_1</field>
+    <field name="report_type">qweb-pdf</field>
+  </record>
+  <record id="sale.action_report_saleorder" model="ir.actions.report" context="{'studio': True}">
+    <field name="attachment" eval="False"/>
+    <field name="attachment_use" eval="False"/>
+    <field name="binding_model_id" eval="False"/>
+    <field name="binding_type">report</field>
+    <field name="groups_id" eval="[(6, 0, [])]"/>
+    <field name="model">sale.order</field>
+    <field name="multi" eval="False"/>
+    <field name="name">Quotation / Order</field>
+    <field name="report_name">sale.report_saleorder</field>
+    <field name="report_type">qweb-pdf</field>
+  </record>
+  <record id="studio_customization.quotation_order_0cdab133-0ef3-44e0-822f-ad27eb008194" model="ir.actions.report" context="{'studio': True}">
+    <field name="attachment" eval="False"/>
+    <field name="attachment_use" eval="False"/>
+    <field name="binding_model_id" eval="False"/>
+    <field name="binding_type">report</field>
+    <field name="groups_id" eval="[(6, 0, [])]"/>
+    <field name="model">sale.order</field>
+    <field name="multi" eval="False"/>
+    <field name="name">Quotation / Order copy(1)</field>
+    <field name="report_name">sale.report_saleorder_copy_1</field>
+    <field name="report_type">qweb-pdf</field>
+  </record>
+  <record id="studio_customization.invoices_4a87a4e7-4187-4cc6-bd2e-6fdbdbcf704a" model="ir.actions.report" context="{'studio': True}">
+    <field name="attachment">(object.state in ('open','in_payment','paid')) and ('INV'+(object.number or '').replace('/','')+'.pdf')</field>
+    <field name="attachment_use" eval="False"/>
+    <field name="binding_model_id" eval="False"/>
+    <field name="binding_type">report</field>
+    <field name="groups_id" eval="[(6, 0, [ref('account.group_account_invoice')])]"/>
+    <field name="model">account.invoice</field>
+    <field name="multi" eval="False"/>
+    <field name="name">Invoices copy(1)</field>
+    <field name="report_name">account.report_invoice_with_payments_copy_1</field>
+    <field name="report_type">qweb-pdf</field>
+  </record>
+  <record id="studio_customization.purchase_order_f48bf2d3-bbf9-43a5-9057-e1f285509bba" model="ir.actions.report" context="{'studio': True}">
+    <field name="attachment" eval="False"/>
+    <field name="attachment_use" eval="False"/>
+    <field name="binding_model_id" ref="purchase.model_purchase_order"/>
+    <field name="binding_type">report</field>
+    <field name="groups_id" eval="[(6, 0, [])]"/>
+    <field name="model">purchase.order</field>
+    <field name="multi" eval="False"/>
+    <field name="name">Purchase Order copy(2)</field>
+    <field name="report_name">purchase.report_purchaseorder_copy_2</field>
+    <field name="report_type">qweb-pdf</field>
+  </record>
+  <record id="studio_customization.invoices_without_pay_db085b89-6801-4e28-87c3-34b3d990e972" model="ir.actions.report" context="{'studio': True}">
+    <field name="attachment">(object.state in ('open','in_payment','paid')) and ('INV'+(object.number or '').replace('/','')+'.pdf')</field>
+    <field name="attachment_use" eval="False"/>
+    <field name="binding_model_id" ref="account.model_account_invoice"/>
+    <field name="binding_type">report</field>
+    <field name="groups_id" eval="[(6, 0, [])]"/>
+    <field name="model">account.invoice</field>
+    <field name="multi" eval="False"/>
+    <field name="name">Commercial Invoice w/o Payment</field>
+    <field name="report_name">account.report_invoice_copy_2_copy_1</field>
+    <field name="report_type">qweb-pdf</field>
+  </record>
+  <record id="studio_customization.invoices_without_pay_4e82d661-d5a5-4a17-864a-a8740deddaf3" model="ir.actions.report" context="{'studio': True}">
+    <field name="attachment">(object.state in ('open','in_payment','paid')) and ('INV'+(object.number or '').replace('/','')+'.pdf')</field>
+    <field name="attachment_use" eval="False"/>
+    <field name="binding_model_id" ref="account.model_account_invoice"/>
+    <field name="binding_type">report</field>
+    <field name="groups_id" eval="[(6, 0, [])]"/>
+    <field name="model">account.invoice</field>
+    <field name="multi" eval="False"/>
+    <field name="name">BinCom Invoice w/o Payment</field>
+    <field name="report_name">account.report_invoice_copy_2_copy_2</field>
+    <field name="report_type">qweb-pdf</field>
+  </record>
+  <record id="studio_customization.purchase_order_copy__fe830c8e-e24c-4f15-8ba0-2892aa5d0610" model="ir.actions.report" context="{'studio': True}">
+    <field name="attachment" eval="False"/>
+    <field name="attachment_use" eval="False"/>
+    <field name="binding_model_id" ref="purchase.model_purchase_order"/>
+    <field name="binding_type">report</field>
+    <field name="groups_id" eval="[(6, 0, [])]"/>
+    <field name="model">purchase.order</field>
+    <field name="multi" eval="False"/>
+    <field name="name">Purchase Order copy(1) copy(1)</field>
+    <field name="report_name">purchase.report_purchaseorder_copy_1_copy_1</field>
+    <field name="report_type">qweb-pdf</field>
+  </record>
+</odoo>
